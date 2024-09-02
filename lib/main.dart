@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_application_2/assign.dart';
+import 'package:flutter_application_2/home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -34,7 +36,7 @@ class MyApp extends StatelessWidget {
             ColorScheme.fromSeed(seedColor: Color.fromARGB(0, 142, 95, 95)),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const Assign(),
     );
   }
 }
@@ -103,6 +105,12 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Container(
+              width: 300,
+              height: 100,
+              decoration:
+                  BoxDecoration(color: Colors.white, border: Border.all()),
+            ),
+            Container(
               width: 200,
               height: 200,
               decoration: BoxDecoration(
@@ -148,11 +156,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ],
             ),
-
             const Text(
               'You have pushed the button this many times:',
             ),
-            
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
@@ -160,6 +166,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
+
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
