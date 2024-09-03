@@ -10,7 +10,7 @@ class Assign extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: Container(
-        padding: EdgeInsets.only(top: 50),
+        padding: const EdgeInsets.only(top: 50),
         width: 200,
         color: Colors.amber,
         height: MediaQuery.of(context).size.height,
@@ -30,7 +30,7 @@ class Assign extends StatelessWidget {
         centerTitle: true,
       ),
       body: Padding(
-        padding: EdgeInsets.only(right: 20, left: 20, top: 30),
+        padding: const EdgeInsets.only(right: 20, left: 20, top: 30),
         child: Column(children: [
           Row(
             children: [

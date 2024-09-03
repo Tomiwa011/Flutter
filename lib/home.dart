@@ -14,7 +14,7 @@ class Home extends StatelessWidget {
         title: const Text("Home"),
       ),
       body: Padding(
-        padding: EdgeInsets.only(right: 20, left: 20, top: 30),
+        padding: const EdgeInsets.only(right: 20, left: 20, top: 30),
         child: Column(children: [
           Row(
             children: [

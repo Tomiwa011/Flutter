@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_application_2/assign.dart';
 import 'package:flutter_application_2/home.dart';
+import 'package:flutter_application_2/Product.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(const MyApp());
@@ -32,11 +34,12 @@ class MyApp extends StatelessWidget {
         //
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
-        colorScheme:
-            ColorScheme.fromSeed(seedColor: Color.fromARGB(0, 142, 95, 95)),
+        colorScheme: ColorScheme.fromSeed(
+            seedColor: const Color.fromARGB(0, 142, 95, 95)),
         useMaterial3: true,
       ),
-      home: const Assign(),
+      home: const Product(),
+      
     );
   }
 }
@@ -134,25 +137,25 @@ class _MyHomePageState extends State<MyHomePage> {
                   height: 50,
                   width: 50,
                   color: Colors.red,
-                  margin: EdgeInsets.all(20),
+                  margin: const EdgeInsets.all(20),
                 ),
                 Container(
                   height: 50,
                   width: 50,
                   color: Colors.red,
-                  margin: EdgeInsets.all(20),
+                  margin: const EdgeInsets.all(20),
                 ),
                 Container(
                   height: 50,
                   width: 50,
                   color: Colors.red,
-                  margin: EdgeInsets.all(20),
+                  margin: const EdgeInsets.all(20),
                 ),
                 Container(
                   height: 50,
                   width: 50,
                   color: Colors.red,
-                  margin: EdgeInsets.all(20),
+                  margin: const EdgeInsets.all(20),
                 ),
               ],
             ),
