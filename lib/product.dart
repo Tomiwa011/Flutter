@@ -1,8 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 
 class Product extends StatelessWidget {
   const Product({super.key});
@@ -10,116 +7,170 @@ class Product extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('2024 Toyota Camry'),
-          centerTitle: true,
+      appBar: AppBar(
+        title: const Text('2024 Toyota Camry',),
+        centerTitle: true,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            // Define back button action here
+          },
         ),
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(0),
-            child: Column(
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.favorite_border),
+            onPressed: () {
+              // Define favorite button action here
+            },
+          ),
+        ],
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Main Image with Overlays
+            Stack(
               children: [
+                // Image.network(
+                //   'https://www.carwale.com/tata-cars/curvv/images/', // Replace with your actual image URL
+                //   width: double.infinity,
+                //   height: 300,
+                //   fit: BoxFit.cover,
+                // ),
                 Container(
-                  width: 410,
+                  width: double.infinity,
                   height: 300,
-                  decoration: const BoxDecoration(
-                    color: Colors.white,
-                  ),
-                  margin: const EdgeInsets.only(bottom: 15),
                 ),
-                const Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Padding(padding: EdgeInsets.all(10)),
-                    Icon(Icons.arrow_back_ios),
-                    Text('1 of 4'),
-                    Icon(Icons.arrow_forward_ios),
-                  ],
-                ),
-                Container(
-                  padding: const EdgeInsets.only(
-                      top: 20, right: 20, left: 20, bottom: 20),
-                  margin: const EdgeInsets.only(top: 9),
-                  // width: 380,
-                  height: 300,
-                  decoration: const BoxDecoration(
-                      color: Color.fromARGB(137, 221, 216, 216),
-                      border: Border.symmetric(),
-                      borderRadius: BorderRadius.all(Radius.circular(20))),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text(' 2004 Toyota Camry',
-                          style: TextStyle(fontSize: 20)),
-                      const Text(
-                        ' N100,000,000',
-                        style:
-                            TextStyle(fontSize: 30, color: Colors.amberAccent),
-                      ),
-                      const Text(' Category:Automobile',
-                          style: TextStyle(fontSize: 15, color: Colors.grey)),
-                      const Row(
-                        children: [
-                          Icon(
-                            Icons.location_on_sharp,
-                            color: Colors.orange,
-                          ),
-                          Text('Shop Address:'),
-                          Text(
-                            '24 Ilupeju street,Ojueleba,Lagos State',
-                          )
-                        ],
-                      ),
-                      Container(
-                        margin:
-                            const EdgeInsets.only(top: 20, left: 10, right: 10),
-                        width: 400,
-                        height: 100,
-                        decoration: BoxDecoration(
-                            color: const Color.fromARGB(255, 244, 121, 34),
-                            borderRadius: BorderRadius.circular(15)),
-                        child: const Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(
-                              Icons.phone,
-                              color: Colors.white,
-                            ),
-                            Text(
-                              'Call',
-                              style: TextStyle(color: Colors.white),
-                            )
-                          ],
-                        ),
-                      )
-                    ],
+                Positioned(
+                  top: 10,
+                  right: 10,
+                  child: IconButton(
+                    icon:
+                        const Icon(Icons.favorite_border, color: Colors.white),
+                    onPressed: () {
+                      // Handle favorite action
+                    },
                   ),
                 ),
-                const Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Send a Quick Message',
-                      style: TextStyle(fontSize: 22),
-                    )
-                  ],
-                ),
-                Container(
-                  margin: const EdgeInsets.only(
-                    left: 10,
-                    right: 10,
-                  ),
-                  width: 410,
-                  height: 250,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  
-                )
               ],
             ),
-          ),
-        ));
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // Product Title and Price
+                  const Text(
+                    '2024 Toyota Camry',
+                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                  ),
+                  const Text(
+                    'N100,000,000',
+                    style: TextStyle(fontSize: 26, color: Colors.amber),
+                  ),
+                  const SizedBox(height: 8),
+                  // Category and Location
+                  const Row(
+                    children: [
+                      Icon(Icons.location_on, color: Colors.orange),
+                      SizedBox(width: 5),
+                      Text(
+                          'Shop Address: 24 Ilupeju street, Ojueleba, Lagos State'),
+                    ],
+                  ),
+                  const SizedBox(height: 20),
+                  // Call Button
+                  ElevatedButton.icon(
+                    onPressed: () {
+                      // Handle call button tap
+                    },
+                    icon: const Icon(Icons.phone),
+                    label: const Text('Call'),
+                    style: ElevatedButton.styleFrom(
+                      shadowColor: Colors.orange,
+                      iconColor: Colors.white,
+                      minimumSize: const Size(double.infinity, 50),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  // Quick Message Section
+                  const Text(
+                    'Send a Quick Message',
+                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(height: 10),
+                  Wrap(
+                    spacing: 10,
+                    children: [
+                      Chip(
+                        label: const Text('Is this still available'),
+                        backgroundColor: Colors.grey.shade200,
+                      ),
+                      Chip(
+                        label: const Text('Last price'),
+                        backgroundColor: Colors.grey.shade200,
+                      ),
+                      Chip(
+                        label: const Text('How will I get it'),
+                        backgroundColor: Colors.grey.shade200,
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 10),
+                  // Message Input
+                  const TextField(
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      hintText: 'Type message',
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  ElevatedButton(
+                    onPressed: () {
+                      // Handle send button tap
+                    },
+                    child: const Text('Send'),
+                    style: ElevatedButton.styleFrom(
+                      iconColor: Colors.orange,
+                      backgroundColor: Colors.white,
+                      minimumSize: const Size(double.infinity, 50),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  // Description Section
+                  const Text(
+                    'Description',
+                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                  ),
+                  const Text(
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet lLorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet lLorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet lLorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet l',
+                    style: TextStyle(color: Colors.grey),
+                  ),
+                  const SizedBox(height: 20),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Icons.store), label: 'Shop'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.business_center), label: 'Portfolio'),
+          BottomNavigationBarItem(icon: Icon(Icons.store), label: 'My Store'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.account_circle), label: 'Account'),
+        ],
+      ),
+    );
   }
 }
